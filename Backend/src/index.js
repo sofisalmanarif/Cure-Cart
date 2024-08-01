@@ -52,6 +52,9 @@ app.use(
 );
 
 // using routes
+app.get("/api/v1/health",(req,res)=>{
+  res.status(200).json({msg:"i am healthy"})
+})
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/product", productRoutes);
 app.use("/api/v1/order", orderRoutes);
