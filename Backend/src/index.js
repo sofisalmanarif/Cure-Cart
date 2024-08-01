@@ -53,6 +53,7 @@ app.use(
 
 // using routes
 app.get("/api/v1/health",(req,res)=>{
+  console.log("health cheack endpoint hitted")
   res.status(200).json({msg:"i am healthy"})
 })
 app.use("/api/v1/users", userRoutes);
