@@ -48,8 +48,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="px-4 py-4 w-full 
-       mx-auto">
+      <div className="px-4 py-4  
+       ">
         <Suspense fallback={<Loader />}>
           <Header />
           <Routes>
