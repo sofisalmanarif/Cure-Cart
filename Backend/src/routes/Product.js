@@ -8,6 +8,7 @@ import {
   getAllProducts,
   getCategories,
   getProductDetails,
+  HomeDeals,
   newProduct,
   searchProduct,
   updateProduct,
@@ -23,6 +24,7 @@ router.get("/babybestdeals", babyBestDeals);
 router.get("/getcategories", getCategories);
 router.get("/search", searchProduct);
 router.get("/categories", categoryFilter);
+router.get("/home-deals",HomeDeals)
 router
   .route("/:id")
   .get(getProductDetails)
@@ -31,5 +33,4 @@ router
 
   
 
-  router.get("/home-deals",HomeDeals)
 export default router;

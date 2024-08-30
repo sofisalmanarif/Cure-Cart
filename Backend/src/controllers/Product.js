@@ -253,7 +253,7 @@ export const categoryFilter = async (req, res, next) => {
 
 export const HomeDeals = async (req, res, next) => {
   try {
-    
+    console.log("first")
       const baby_products = await Product.find({ category: "baby care" })
         .sort({ discount: -1 })
         .limit(5);
@@ -269,6 +269,7 @@ export const HomeDeals = async (req, res, next) => {
       },
     });
   } catch (error) {
+  console.log("error")
     next(error);
   }
 };
