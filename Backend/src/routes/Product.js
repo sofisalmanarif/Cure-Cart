@@ -29,4 +29,7 @@ router
   .put(adminOnly, uploadImage, updateProduct)
   .delete(adminOnly, deleteProduct);
 
+  
+
+  router.get("/home-deals",HomeDeals)
 export default router;
