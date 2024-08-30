@@ -248,3 +248,27 @@ export const categoryFilter = async (req, res, next) => {
     next(error);
   }
 };
+
+
+
+export const HomeDeals = async (req, res, next) => {
+  try {
+    
+      const baby_products = await Product.find({ category: "baby care" })
+        .sort({ discount: -1 })
+        .limit(5);
+
+        const latest = await Product.find({}).sort({ discount: -1 }).limit(5);
+    
+
+    return res.status(200).json({
+      success: true,
+      products:{
+        baby_products,
+        latest
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
