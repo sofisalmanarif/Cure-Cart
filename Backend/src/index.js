@@ -31,7 +31,6 @@ const app = express();
 const allowedOrigins = ['http://localhost:5173', 'https://curecart.vercel.app']; //  allowed origins here
 
 
-app.use(morgan('combined')); 
 app.use(cors({ 
   origin: function(origin, callback) {
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
@@ -44,6 +43,7 @@ app.use(cors({
 }));
 
 
+app.use(morgan('combined')); 
 app.use(cookieParser());
 app.use(express.json());
 app.use(
