@@ -23,12 +23,15 @@ const stripeKey = process.env.STRIPE_KEY ;
 connectDb(mongoURI);
 export const stripe =new Stripe(stripeKey)
 export const myCache = new nodeCache();
+import morgan from "morgan";
 
 const app = express();
 
 // middlewares
-const allowedOrigins = ['http://localhost:5173', 'https://curecart.vercel.app']; // Add your allowed origins here
+const allowedOrigins = ['http://localhost:5173', 'https://curecart.vercel.app']; //  allowed origins here
 
+
+app.use(morgan('combined')); 
 app.use(cors({ 
   origin: function(origin, callback) {
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
@@ -51,11 +54,14 @@ app.use(
   })
 );
 
+
 // using routes
 app.get("/api/v1/health",(req,res)=>{
   console.log("health cheack endpoint hitted")
   res.status(200).json({msg:"i am healthy"})
 })
+
+
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/product", productRoutes);
 app.use("/api/v1/order", orderRoutes);
